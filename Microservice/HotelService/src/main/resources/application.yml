@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: HotelService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/micro_hotelservice
+    username: root
+    password: Ajaymysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+  
+    show-sql: true
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+  instance:
+    preferIpAddress: true
+    fetchRegistry: true
+    registerWithEureka: true

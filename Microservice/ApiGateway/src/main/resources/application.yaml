@@ -1,0 +1,35 @@
+    
+server:
+  port: 8084 
+
+spring:
+  cloud:
+    gateway:
+      routes:
+       - id: USER-SERVICE
+         uri: lb://USER-SERVICE
+         predicates:
+          - Path=/user/**
+       
+       - id: HOTELSERVICE
+         uri: lb://HOTELSERVICE
+         predicates:
+          - Path=/hotel/**
+       
+       - id: RATINGSERVICE
+         uri: lb://RATINGSERVICE
+         predicates:
+          - Path=/rating/**
+                   
+  application:
+    name: API-Gateway
+      
+       
+okta:
+  oauth2:
+    issuer: https://dev-27296919.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oagqgfiakJ26K48O5d7
+    client-secret: We4z-u5S70-IKnlyxOnkWu5cuSsjzccNb9yrnYm_H0fV_HZd1fqf5sVWrsBNgYXc
+    scopes:
+    - openid, profile, email, offline_access

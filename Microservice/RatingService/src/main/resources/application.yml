@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: RatingService
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: Microservices
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+  instance:
+    preferIpAddress: true
+    fetchRegistry: true
+    registerWithEureka: true
+
